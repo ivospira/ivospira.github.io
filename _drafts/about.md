@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: page
+title: About
+permalink: /about/
 ---
-
-<div class="home">
 
 <img src="/assets/IvoSpira_portrait_Saggio.jpg" width="200px" style="float:right;padding:10pt">
 
@@ -16,20 +16,3 @@ layout: default
 <p>Research interests: linguistics, rhetoric, conceptual history; natural language processing; Chinese, <a href="http://folk.uio.no/ivos/ODADS/">Dungan language and culture</a>, Arabic, Islam; translation, translingual practice; ontologies, classification; second language acquisition; key concepts, key words.</p>
 
 <p>Other interests: The East Asian board game of Go 碁 (<em>igo</em> 囲碁, <em>weiqi</em> 圍棋, <em>baduk</em> 바둑), tango (the dance and the music).</p>
-
-	<h2>Posts</h2>
-   <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
