@@ -1,7 +1,110 @@
-<!DOCTYPE html>
+
 <html>
+<head>
+	<title>Ivo Spira | Linguistics | Arabic, Chinese, Dungan | Conceptual History | Natural Language Processing</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link href="styles.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.getUrlParam.js"></script>
+	<script type="text/javascript">
+		//if ($.browser.msie) {
+		//	alert("These pages are only properly viewable with Firefox or Safari!");
+		//}
+		$(document).ready(function() {
+			var curPage;
+			curPage = $(document).getUrlParam("page");
+			if (curPage == null) {
+				//alert(curPage);
+				curPage="home";
+			}
+			function togglePage (p) {
+				
+				var curContent;
+				var curMenuItem;
+				var content;
+				var menuItem;
+				
+				curContent = "." + p;
+				curMenuItem = "#" + p;
+				$(curContent).toggle();
+				$(curMenuItem).toggleClass("hiMenuItem");
+			}
+			function switchPage (np) {
+				togglePage(curPage);
+				togglePage(np);
+				curPage = np;
+			}
+
+			$.get("data.html", {}, function(a) {
+				$("#contentArea").append(a);
+
+				$("#contentArea").children().each(function() {
+					$(this).hide();
+				});
+				
+				togglePage(curPage);
+				//$("#content").attr('style', '');
+				//$("#contentData").attr('visibility', 'visible');
+
+				$("#menu").addClass("menu").children().click(function() {
+					theID = $(this).attr("id");
+					switchPage(theID);
+
+				});
+				//$("#gotoIsms").click(function(){
+
+//					switchPage('isms');
+//				});
+
+//				$("#gotoIsms2").click(function(){
+
+//					switchPage('isms');
+//				});
+				$("#gotoNorisms").click(function(){
+
+					switchPage('norisms');
+				});
+				$("#gotoMoreOnIsmsInEnglish").click(function(){
+
+					switchPage('moreOnIsms');
+				});
+
+			});
+	
+		});
+	</script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+	<table width="1000" height="2000" style="border-style: hidden; border-collapse: separate; border: 0" border="0" cellpadding="0" cellspacing="0" >
+		<col >
+		<col width="250">
+		<tr height="30" class="tableLining">
+			<td>
+			<div class="topBar">
+				Ivo Spira 史易文
+			</div>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td id="content" class="content" valign="top">
+				<div id="contentArea" ><div>
+				<div id="hiddenContent"></div>
+			</td>
+			<td valign="top" class="tableLining">
+				<div id="menu">
+					<div id="home">HOME</div>
+					<!--<div id="isms">ISMS PROJECT</div>---!>
+					<div id="contact">CONTACT</div>
+					<div id="links">LINKS</div>
+					<div id="useful">USEFUL</div>
+				</div>
+
+			</td>
+		</tr>
+	</table>
+
 </body>
 </html>
+
